@@ -2,12 +2,13 @@ name: Sonarcloud
 
 
 on:
-  pull_request:
+  push:
     branches:
       - dev
-      - qa
-      - prod
-    types: [opened, synchronize]
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+    
 jobs:
   sonarcloud:
     runs-on: ubuntu-latest
