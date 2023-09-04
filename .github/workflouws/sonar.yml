@@ -1,0 +1,24 @@
+name: Sonarcloud
+
+
+on:
+  pull_request:
+    branches:
+      - dev
+      - qa
+      - prod
+    types: [opened, synchronize]
+jobs:
+  sonarcloud:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        # Disabling shallow clone is recommended for improving relevancy of reporting
+        fetch-depth: 0
+    - name: SonarCloud Scan
+    
+      uses: sonarsource/sonarcloud-github-action@master
+      env:
+        GITHUB_TOKEN: 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
+        SONAR_TOKEN: b34409d2ea07bd25fa4c93c54480af8cd65323ba
